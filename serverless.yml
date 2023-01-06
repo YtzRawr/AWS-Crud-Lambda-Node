@@ -4,10 +4,17 @@ service: aws-lambda-crud-node
 
 frameworkVersion: '3'
 
+# en donde se subira la func
 provider:
   name: aws
   runtime: nodejs14.x
-
+  # region en donde es que estara
+  region: sa-east-1
+# enrutador
 functions:
   hello:
     handler: handler.hello
+    events:
+      - httApi:
+          path: /
+          method: get
