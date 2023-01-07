@@ -19,11 +19,18 @@ provider:
 # enrutador
 functions:
   hello:
-    handler: handler.hello
+    handler: src/handler.hello
     events:
       - httApi:
           path: /
           method: get
+
+  createTask:
+    handler: src/addTask.addTask
+    events:
+      - httApi:
+          path: /tasks
+          method: post
 
 resources:
   Resources:
