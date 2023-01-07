@@ -9,7 +9,7 @@ provider:
   name: aws
   runtime: nodejs14.x
   # region en donde es que estara
-  region: sa-east-1
+  region: us-west-2
 # enrutador
 functions:
   hello:
@@ -18,3 +18,17 @@ functions:
       - httApi:
           path: /
           method: get
+
+resources:
+  Resources:
+    TaskTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: TaskTable
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
