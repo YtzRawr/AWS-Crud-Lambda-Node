@@ -19,7 +19,7 @@ provider:
 # enrutador
 functions:
   hello:
-    handler: src/handler.hello
+    handler: src/hello.hello
     events:
       - httApi:
           path: /
@@ -28,7 +28,7 @@ functions:
   createTask:
     handler: src/addTask.addTask
     events:
-      - httApi:
+      - httpApi:
           path: /tasks
           method: post
 
